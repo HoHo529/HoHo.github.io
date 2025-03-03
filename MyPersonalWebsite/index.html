@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梁梓昊的个人网站 | HoHo's Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e0f7fa, #ffeb3b); /* 渐变背景 */
+            color: #343a40; /* 字体颜色 */
+        }
+
+        header {
+            background-color: #3f51b5; /* 头部背景色 */
+            color: white; /* 字体颜色 */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* 阴影效果 */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white; /* 链接颜色 */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s; /* 过渡效果 */
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b; /* 悬停时的颜色 */
+        }
+
+        .section {
+            padding: 20px;
+            margin: 20px auto;
+            background-color: #ffffff; /* 每个部分的背景色 */
+            border-radius: 8px; /* 圆角 */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+            max-width: 800px; /* 最大宽度 */
+        }
+
+        h2 {
+            color: #3f51b5; /* 小标题颜色 */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #3f51b5; /* 页脚背景色 */
+            color: white; /* 页脚字体颜色 */
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        img {
+            max-width: 100%; /* 确保图片响应式 */
+            height: auto;
+            border-radius: 50%; /* 圆形图片 */
+            margin: 20px 0;
+        }
+
+        /* 添加媒体查询以增强响应性 */
+        @media (max-width: 600px) {
+            nav ul li {
+                display: block; /* 在小屏幕上垂直排列 */
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="site-title">欢迎来到我的个人网站 | Welcome to My Personal Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" id="home-link">首页 | Home</a></li>
+                <li><a href="#about" id="about-link">关于我 | About Me</a></li>
+                <li><a href="#portfolio" id="portfolio-link">作品集 | Portfolio</a></li>
+                <li><a href="#blog" id="blog-link">博客 | Blog</a></li>
+                <li><a href="#contact" id="contact-link">联系我 | Contact Me</a></li>
+            </ul>
+            <div>
+                <label for="language-select">选择语言 | Select Language:</label>
+                <select id="language-select" onchange="changeLanguage()">
+                    <option value="zh-CN">简体中文</option>
+                    <option value="zh-TW">繁体中文</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="section">
+        <h2 id="home-title">个人简介 | Personal Introduction</h2>
+        <img src="your-photo.jpg" alt="个人照片 | Personal Photo">
+        <p id="home-content">姓名：梁梓昊 (HoHo)<br>年龄：22<br>学历：本科<br>求职意向：数据分析师相关职位</p>
+    </section>
+
+    <section id="about" class="section">
+        <h2 id="about-title">关于我 | About Me</h2>
+        <p id="education-link">教育经历 | <a href="education.html">查看详细</a></p>
+        <p id="awards-link">获奖经历 | <a href="awards.html">查看详细</a></p>
+        <p id="interests-link">兴趣爱好 | <a href="interests.html">查看详细</a></p>
+    </section>
+
+    <section id="portfolio" class="section">
+        <h2 id="portfolio-title">作品集 | Portfolio</h2>
+        <p id="portfolio-content">上传你的作品和项目，可以包括论文、研究、代码等。</p>
+        <ul id="portfolio-list"></ul>
+    </section>
+
+    <section id="blog" class="section">
+        <h2 id="blog-title">博客 | Blog</h2>
+        <p id="blog-content">分享你的见解或者论文更新。</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 id="contact-title">联系我 | Contact Me</h2>
+        <p id="contact-content">手机: 13422520169<br>邮箱: 17188600971@163.com<br>微信: 925592419</p>
+    </section>
+
+    <footer>
+        <p>© 2023 梁梓昊 | HoHo. 版权所有 | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function changeLanguage() {
+            const lang = document.getElementById("language-select").value;
+            if (lang === "zh-CN") {
+                document.getElementById("site-title").innerHTML = "欢迎来到我的个人网站";
+                document.getElementById("home-title").innerHTML = "个人简介";
+                document.getElementById("home-content").innerHTML = "姓名：梁梓昊 (HoHo)<br>年龄：22<br>学历：本科<br>求职意向：数据分析师相关职位";
+                document.getElementById("about-title").innerHTML = "关于我";
+                document.getElementById("education-link").innerHTML = "教育经历 | <a href='education.html'>查看详细</a>";
+                document.getElementById("awards-link").innerHTML = "获奖经历 | <a href='awards.html'>查看详细</a>";
+                document.getElementById("interests-link").innerHTML = "兴趣爱好 | <a href='interests.html'>查看详细</a>";
+                document.getElementById("portfolio-title").innerHTML = "作品集";
+                document.getElementById("portfolio-content").innerHTML = "上传你的作品和项目，可以包括论文、研究、代码等。";
+                document.getElementById("blog-title").innerHTML = "博客";
+                document.getElementById("blog-content").innerHTML = "分享你的见解或者论文更新。";
+                document.getElementById("contact-title").innerHTML = "联系我";
+                document.getElementById("contact-content").innerHTML = "手机: 13422520169<br>邮箱: 17188600971@163.com<br>微信: 925592419";
+
+                // 更新作品列表为中文
+                const portfolioItems = [
+                    "定日镜场的优化设计",
+                    "看病难问题的量化分析：医疗资源配置与区域差异的关联性研究",
+                    "基于多阶段决策模型的生产产品控制与成本管理优化",
+                    "基于LSTM模型的股价趋势预测：对中国股市的实证分析",
+                    "‘双碳’目标下减污降碳与经济高质量发展的协同机理与实证探讨——以广东省为例",
+                    "动态环境下的机会信号自主定位导航系统设计与优化",
+                    "生产线的故障自动识别与人员配置",
+                    "基于数据驱动的减少非法野生动物贸易的研究",
+                    "河流与地下水系统有机污染物迁移与转化机制研究",
+                    "热解组合产品的产量研究",
+                    "基于数据驱动的热解组合产品产量研究",
+                    "基于开放式基金套利的量化金融模型研究",
+                    "新冠疫情防控数据的分析"
+                ];
+                updatePortfolio(portfolioItems);
+            } else if (lang === "zh-TW") {
+                document.getElementById("site-title").innerHTML = "歡迎來到我的個人網站";
+                document.getElementById("home-title").innerHTML = "個人簡介";
+                document.getElementById("home-content").innerHTML = "姓名：梁梓昊 (HoHo)<br>年齡：22<br>學歷：本科<br>求職意向：數據分析師相關職位";
+                document.getElementById("about-title").innerHTML = "關於我";
+                document.getElementById("education-link").innerHTML = "教育經歷 | <a href='education.html'>查看詳細</a>";
+                document.getElementById("awards-link").innerHTML = "獲獎經歷 | <a href='awards.html'>查看詳細</a>";
+                document.getElementById("interests-link").innerHTML = "興趣愛好 | <a href='interests.html'>查看詳細</a>";
+                document.getElementById("portfolio-title").innerHTML = "作品集";
+                document.getElementById("portfolio-content").innerHTML = "上傳你的作品和項目，可以包括論文、研究、代碼等。";
+                document.getElementById("blog-title").innerHTML = "部落格";
+                document.getElementById("blog-content").innerHTML = "分享你的見解或者論文更新。";
+                document.getElementById("contact-title").innerHTML = "聯繫我";
+                document.getElementById("contact-content").innerHTML = "手機: 13422520169<br>郵箱: 17188600971@163.com<br>微信: 925592419";
+
+                // 更新作品列表为繁体中文
+                const portfolioItems = [
+                    "定日鏡場的優化設計",
+                    "看病難問題的量化分析：醫療資源配置與區域差異的關聯性研究",
+                    "基於多階段決策模型的生產產品控制與成本管理優化",
+                    "基於LSTM模型的股價趨勢預測：對中國股市的實證分析",
+                    "‘雙碳’目標下減污降碳與經濟高質量發展的協同機理與實證探討——以廣東省為例",
+                    "動態環境下的機會信號自主定位導航系統設計與優化",
+                    "生產線的故障自動識別與人員配置",
+                    "基於數據驅動的減少非法野生動物貿易的研究",
+                    "河流與地下水系統有機污染物遷移與轉化機制研究",
+                    "熱解組合產品的產量研究",
+                    "基於數據驅動的熱解組合產品產量研究",
+                    "基於開放式基金套利的量化金融模型研究",
+                    "新冠疫情防控數據的分析"
+                ];
+                updatePortfolio(portfolioItems);
+            } else if (lang === "en") {
+                document.getElementById("site-title").innerHTML = "Welcome to My Personal Website";
+                document.getElementById("home-title").innerHTML = "Personal Introduction";
+                document.getElementById("home-content").innerHTML = "Name: Liang Zihao (HoHo)<br>Age: 22<br>Education: Bachelor's Degree<br>Job Intent: Data Analyst Position";
+                document.getElementById("about-title").innerHTML = "About Me";
+                document.getElementById("education-link").innerHTML = "Education | <a href='education.html'>View Details</a>";
+                document.getElementById("awards-link").innerHTML = "Awards | <a href='awards.html'>View Details</a>";
+                document.getElementById("interests-link").innerHTML = "Interests | <a href='interests.html'>View Details</a>";
+                document.getElementById("portfolio-title").innerHTML = "Portfolio";
+                document.getElementById("portfolio-content").innerHTML = "Upload your works and projects, including papers, research, code, etc.";
+                document.getElementById("blog-title").innerHTML = "Blog";
+                document.getElementById("blog-content").innerHTML = "Share your insights or updates on papers.";
+                document.getElementById("contact-title").innerHTML = "Contact Me";
+                document.getElementById("contact-content").innerHTML = "Phone: 13422520169<br>Email: 17188600971@163.com<br>WeChat: 925592419";
+
+                // 更新作品列表为英文
+                const portfolioItems = [
+                    "Optimization Design of Solar Field",
+                    "Quantitative Analysis of Difficulties in Medical Treatment: The Relationship Between Medical Resource Allocation and Regional Differences",
+                    "Production Product Control and Cost Management Optimization Based on Multi-Stage Decision Model",
+                    "Stock Price Trend Prediction Based on LSTM Model: An Empirical Analysis of the Chinese Stock Market",
+                    "Research on the Synergistic Mechanism and Empirical Exploration of Pollution Reduction and Carbon Reduction Under the 'Dual Carbon' Goal - A Case Study of Guangdong Province",
+                    "Design and Optimization of Autonomous Positioning Navigation System for Opportunity Signals in Dynamic Environments",
+                    "Automatic Fault Identification and Personnel Allocation of Production Lines",
+                    "Research on Reducing Illegal Wildlife Trade Based on Data-Driven",
+                    "Migration and Transformation Mechanism of Organic Pollutants in River and Groundwater Systems",
+                    "Study on the Yield of Pyrolysis Combined Products",
+                    "Research on the Yield of Pyrolysis Combined Products Based on Data-Driven",
+                    "Research on Quantitative Financial Models Based on Open-End Fund Arbitrage",
+                    "Analysis of COVID-19 Prevention and Control Data"
+                ];
+                updatePortfolio(portfolioItems);
+            }
+        }
+
+        function updatePortfolio(items) {
+            const portfolioList = document.getElementById("portfolio-list");
+            portfolioList.innerHTML = ""; // 清空现有列表
+            items.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `
+                    <a href="https://drive.google.com/file/d/${getFileId(index)}" target="_blank">${item}</a>
+                    <a href="https://drive.google.com/uc?id=${getFileId(index)}" download>&#8681;</a>
+                `;
+                portfolioList.appendChild(listItem);
+            });
+        }
+
+        function getFileId(index) {
+            const fileIds = [
+                "1fOaqxDblKmIU8bYv-bvODPtHYhX8MXjY",
+                "1MHGfsKYgGrhL9yYhCO-Y-G_V7jR95m5S",
+                "1jOuMYW6N48M5lgmdoHhERuvyspQ8Nf5K",
+                "1ZyFfn4ya95WaLCkV-w9-ALo9fUToPiPT",
+                "1PtvH9YRk_124OdgEW-fwINHVxxFldmr-",
+                "19aPrLszsWb00qI8nrYpOysTMrAetLwq8",
+                "1nkO9Gct2YhH5Qz4Ocd6sCeAr942MRpnD",
+                "1PVNY5w1-UjvBRIkhIclvC8D-EESiCqdf",
+                "1TgWakvhNtreDIsSqV6YEYKMjZOqffbvh",
+                "1d7TLvhjMYNqbClsnLi5nbq0v16Rve-EZ",
+                "1FkA-661O3aQ3GfURfVZDsWdIY4U_xkPy",
+                "1hQEhw6UBZGUEfeafnhANFHooBCzctXDa",
+                "1MIRzB4qxOo693cTtF3XuTXoVfjsOMYI1"
+            ];
+            return fileIds[index];
+        }
+
+        // 页面加载时初始化作品集
+        window.onload = function() {
+            changeLanguage(); // 默认加载简体中文
+        };
+    </script>
+</body>
+</html>
